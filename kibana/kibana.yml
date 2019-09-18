@@ -1,0 +1,17 @@
+# Default Kibana configuration for docker target
+server.name: kibana
+server.host: "0"
+# This is pointed to one cluster
+elasticsearch.hosts: [ "https://es01:9200" ]
+xpack.monitoring.ui.container.elasticsearch.enabled: true
+
+# Below setting is allowing Kibana to connect to elastic by HTTPS
+elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/config/ca.crt
+elasticsearch.username: elastic
+elasticsearch.password: PleaseChangeMe
+
+# Below setting is using SSL for connecting to Kibana
+server.ssl.enabled: true
+server.ssl.key: /usr/share/kibana/config/es01.key
+server.ssl.certificate: /usr/share/kibana/config/es01.crt
+

@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.3.2
+    volumes:
+      - /data/volumes/es_certs/_data/es01/es01.crt:/usr/share/kibana/config/es01.crt
+      - /data/volumes/es_certs/_data/es01/es01.key:/usr/share/kibana/config/es01.key
+      - /data/volumes/es_certs/_data/ca/ca.crt:/usr/share/kibana/config/ca.crt
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - 5601:5601
+
+networks:
+  default: 
+    name: es_default
